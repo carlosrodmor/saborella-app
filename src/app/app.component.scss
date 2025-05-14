@@ -1,17 +1,13 @@
 :host {
   display: block;
   min-height: 100vh;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  color: #333;
+  font-family: "Minion Pro", "Times New Roman", serif;
+  color: var(--color-dark);
 }
 
 main {
-  padding-top: 80px; /* Espacio para la navbar */
-  min-height: calc(100vh - 80px);
-  max-width: 1200px;
-  margin: 0 auto;
-  padding-left: 2rem;
-  padding-right: 2rem;
+  padding-top: 0; /* Eliminamos el padding para la navbar */
+  min-height: 100vh;
 }
 
 /* Estilos globales básicos */
@@ -19,4 +15,32 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+/* Estilos para secciones */
+section {
+  padding: 5rem 0;
+}
+
+/* Estilos para títulos de sección */
+.section-title {
+  font-family: "ATF Alternate Gothic", "Arial Narrow", sans-serif;
+  font-size: 3rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 3rem;
+  text-align: center;
+  position: relative;
+  color: var(--color-primary);
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background-color: var(--color-secondary);
+  }
 }
