@@ -1,4 +1,12 @@
-import { Component } from '@angular/core';
+import {
+  Component,
+  AfterViewInit,
+  OnDestroy,
+  ElementRef,
+  Renderer2,
+  ViewChildren,
+  QueryList,
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 interface MenuItem {
@@ -6,12 +14,17 @@ interface MenuItem {
   precio: number;
   descripcion?: string;
   imagen?: string;
+  destacado?: boolean;
+  vegano?: boolean;
+  sinGluten?: boolean;
+  picante?: boolean;
 }
 
 interface MenuSeccion {
   titulo: string;
   items: MenuItem[];
   imagenFondo?: string;
+  mostrarEtiquetas?: boolean;
 }
 
 @Component({
@@ -21,12 +34,16 @@ interface MenuSeccion {
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.scss'],
 })
-export class MenuComponent {
+export class MenuComponent implements AfterViewInit, OnDestroy {
+  @ViewChildren('menuSection') menuSections!: QueryList<ElementRef>;
+  private observer: IntersectionObserver | null = null;
+
   menuSecciones: MenuSeccion[] = [
     {
       titulo: 'Hamburguesas',
       imagenFondo:
         'https://images.unsplash.com/photo-1586816001966-79b736744398?q=80&w=1920',
+      mostrarEtiquetas: true,
       items: [
         {
           nombre: 'La Infanta XXL',
@@ -35,6 +52,8 @@ export class MenuComponent {
             'Pan Saborella acompañado de Ternera con bacon crunchy ó pollo, cheddar, lechuga, tomate, ketchup, mayonesa y mostaza',
           imagen:
             'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=800',
+          destacado: true,
+          picante: true,
         },
         {
           nombre: 'La InfantaXS',
@@ -50,6 +69,7 @@ export class MenuComponent {
             'Pan Saborella acompañado de Ternera con bacon crunchy, pollo, cheddar, york, lechuga, tomate, ketchup, mayonesa y mostaza',
           imagen:
             'https://images.unsplash.com/photo-1553979459-d2229ba7433b?q=80&w=800',
+          destacado: true,
         },
         {
           nombre: 'La Princesa XS',
@@ -65,6 +85,8 @@ export class MenuComponent {
             'Pan Saborella acompañado de Ternera con bacon crunchy, pollo, ternera mechada, pierna de cerdo a baja temperatura, triple de cheddar, york, lechuga, tomate, ketchup, mayonesa y mostaza',
           imagen:
             'https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?q=80&w=800',
+          destacado: true,
+          picante: true,
         },
         {
           nombre: 'La Reina XS',
@@ -79,6 +101,7 @@ export class MenuComponent {
       titulo: 'Postres',
       imagenFondo:
         'https://images.unsplash.com/photo-1587314168485-3236d6710814?q=80&w=1920',
+      mostrarEtiquetas: true,
       items: [
         {
           nombre: 'Bella Chocolate',
@@ -86,6 +109,7 @@ export class MenuComponent {
           descripcion: 'Brownie de chocolate con un giro celestial',
           imagen:
             'https://images.unsplash.com/photo-1606313564200-e75d5e30476c?q=80&w=800',
+          destacado: true,
         },
         {
           nombre: 'Cheesebella Clásica',
@@ -93,6 +117,7 @@ export class MenuComponent {
           descripcion: 'La Reina de las tartas ahora con frutos rojos',
           imagen:
             'https://images.unsplash.com/photo-1533134242443-d4fd215305ad?q=80&w=800',
+          sinGluten: true,
         },
         {
           nombre: 'Bella Italiana',
@@ -107,6 +132,8 @@ export class MenuComponent {
           descripcion: 'Bizcocho 3 leches con merengue',
           imagen:
             'https://images.unsplash.com/photo-1464195244916-405fa0a82545?q=80&w=800',
+          vegano: true,
+          sinGluten: true,
         },
       ],
     },
@@ -263,4 +290,40 @@ export class MenuComponent {
       ],
     },
   ];
+
+  constructor(private renderer: Renderer2, private el: ElementRef) {}
+
+  ngAfterViewInit() {
+    this.setupIntersectionObserver();
+  }
+
+  ngOnDestroy() {
+    if (this.observer) {
+      this.observer.disconnect();
+      this.observer = null;
+    }
+  }
+
+  private setupIntersectionObserver() {
+    const options = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.3,
+    };
+
+    this.observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          this.renderer.addClass(entry.target, 'visible');
+        }
+      });
+    }, options);
+
+    // Observar las secciones de menú
+    const sectionElements =
+      this.el.nativeElement.querySelectorAll('.menu-section');
+    sectionElements.forEach((element: Element) => {
+      this.observer?.observe(element);
+    });
+  }
 }
