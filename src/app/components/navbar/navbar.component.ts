@@ -13,17 +13,14 @@ export class NavbarComponent implements OnInit {
   isMenuOpen = false;
   isScrolled = false;
 
-  constructor() {}
-
   ngOnInit(): void {
-    // Verificar posición inicial del scroll
+    // Verificar la posición inicial del scroll
     this.checkScroll();
   }
 
-  @HostListener('window:scroll')
-  checkScroll() {
-    // Cambiar estado cuando el scroll es mayor a 20px para que se active rápidamente
-    this.isScrolled = window.scrollY > 20;
+  @HostListener('window:scroll', [])
+  checkScroll(): void {
+    this.isScrolled = window.scrollY > 30;
   }
 
   toggleMenu() {

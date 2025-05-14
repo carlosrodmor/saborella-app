@@ -1,25 +1,20 @@
-<nav [ngClass]="{'scrolled': isScrolled, 'open': isMenuOpen}">
-  <div class="container">
-    <div class="logo">
-      <a routerLink="/" (click)="closeMenu()">
-        <img src="assets/logo/logo.png" alt="Saborella">
-      </a>
+<nav class="modern-navbar" [ngClass]="{'scrolled': isScrolled}">
+  <div class="navbar-content-wrapper">
+    <!-- Contenedor del logo eliminado -->
+
+    <div class="menu-toggle" (click)="toggleMenu()" aria-label="Menú" [attr.aria-expanded]="isMenuOpen">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
     </div>
 
-    <div class="menu-toggle" (click)="toggleMenu()" aria-label="Menú">
-      <div class="bar" [ngClass]="{'animate': isMenuOpen}"></div>
-      <div class="bar" [ngClass]="{'animate': isMenuOpen}"></div>
-      <div class="bar" [ngClass]="{'animate': isMenuOpen}"></div>
-    </div>
-
-    <ul class="nav-links" [ngClass]="{'active': isMenuOpen}">
-      <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
-          (click)="closeMenu()">Inicio</a></li>
-      <li><a routerLink="/menu" routerLinkActive="active" (click)="closeMenu()">Menú</a></li>
-      <li><a routerLink="/reservas" routerLinkActive="active" (click)="closeMenu()">Reservas</a></li>
+    <ul class="modern-nav-links" [ngClass]="{'active': isMenuOpen}">
+      <li><a routerLink="/menu" routerLinkActive="active" (click)="closeMenu()">Inicio</a></li>
       <li><a routerLink="/nosotros" routerLinkActive="active" (click)="closeMenu()">Nosotros</a></li>
       <li><a routerLink="/contacto" routerLinkActive="active" (click)="closeMenu()">Contacto</a></li>
     </ul>
   </div>
 </nav>
-<div class="overlay" *ngIf="isMenuOpen" (click)="closeMenu()"></div>
+
+<!-- Overlay para el menú móvil -->
+<div class="modern-overlay" [ngClass]="{'active': isMenuOpen}" (click)="closeMenu()"></div>
