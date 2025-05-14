@@ -6,11 +6,12 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { ScrollToTopComponent } from '../../components/scroll-to-top/scroll-to-top.component';
 
 @Component({
   selector: 'app-contacto',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, ScrollToTopComponent],
   templateUrl: './contacto.component.html',
   styleUrl: './contacto.component.scss',
 })

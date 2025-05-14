@@ -2,7 +2,7 @@
   <div class="hero-content">
     <div class="hero-text">
       <h1>Las mejores hamburguesas artesanales de la ciudad</h1>
-      <button class="cta-button" routerLink="/menu">VER NUESTRO MENÚ</button>
+      <button class="cta-button" (click)="scrollToMenu()">VER NUESTRO MENÚ</button>
     </div>
   </div>
 </section>
@@ -25,10 +25,12 @@
   </div>
 </section>
 
-<section class="menu-section">
+<section class="menu-section" #menuSection>
   <div class="section-header">
     <h2>Nuestro Menú</h2>
     <p>Descubre nuestra selección de deliciosas hamburguesas, postres y bebidas</p>
   </div>
   <app-menu></app-menu>
 </section>
+
+<app-scroll-to-top></app-scroll-to-top>
