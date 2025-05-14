@@ -7,6 +7,8 @@ $border-radius: 4px;
 $transition-speed: 0.3s;
 $error-color: #e53935;
 
+@use "sass:color";
+
 .contacto-container {
   min-height: 100vh;
   padding: 120px $spacing-unit * 2 $spacing-unit * 4;
@@ -103,18 +105,20 @@ $error-color: #e53935;
       font-weight: 500;
     }
 
-    input, textarea {
+    input,
+    textarea {
       width: 100%;
       padding: $spacing-unit * 0.8;
       border: 1px solid #ddd;
       border-radius: $border-radius;
       font-family: inherit;
       font-size: 1rem;
-      transition: border-color $transition-speed ease, box-shadow $transition-speed ease;
+      transition: border-color $transition-speed ease,
+        box-shadow $transition-speed ease;
 
       &:focus {
         outline: none;
-        border-color: darken(#ddd, 15%);
+        border-color: color.adjust(#ddd, $lightness: -15%);
         box-shadow: 0 0 0 2px rgba($primary-color, 0.1);
       }
 
@@ -147,7 +151,7 @@ $error-color: #e53935;
     transition: background-color $transition-speed ease;
 
     &:hover {
-      background-color: lighten($primary-color, 10%);
+      background-color: color.adjust($primary-color, $lightness: 10%);
     }
 
     &:disabled {

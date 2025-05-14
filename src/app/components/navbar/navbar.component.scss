@@ -1,3 +1,5 @@
+@use "sass:color";
+
 :host {
   display: block;
   width: 100%;
@@ -138,7 +140,7 @@ $transition-easing: cubic-bezier(0.25, 0.8, 0.25, 1);
       right: -100%;
       width: clamp(280px, 70vw, 350px);
       height: 100vh;
-      background-color: darken($navbar-bg, 5%);
+      background-color: color.adjust($navbar-bg, $lightness: -5%);
       flex-direction: column;
       justify-content: center;
       align-items: center;
