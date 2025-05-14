@@ -1,4 +1,4 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
@@ -9,33 +9,27 @@ import { RouterModule } from '@angular/router';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss'],
 })
-export class NavbarComponent {
+export class NavbarComponent implements OnInit {
   isMenuOpen = false;
   isScrolled = false;
 
-  constructor() {
-    // Verificar el scroll inicial
+  constructor() {}
+
+  ngOnInit(): void {
+    // Verificar posición inicial del scroll
     this.checkScroll();
   }
 
-  @HostListener('window:scroll', [])
-  onWindowScroll() {
-    this.checkScroll();
-  }
-
+  @HostListener('window:scroll')
   checkScroll() {
-    this.isScrolled = window.scrollY > 20;
+    // Cambiar estado cuando el scroll es mayor a 50px
+    this.isScrolled = window.scrollY > 50;
   }
 
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;
-
-    // Prevenir scroll cuando el menú está abierto en móvil
-    if (this.isMenuOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-    }
+    // Prevenir scroll cuando el menú está abierto
+    document.body.style.overflow = this.isMenuOpen ? 'hidden' : '';
   }
 
   closeMenu() {

@@ -1,59 +1,63 @@
-# SaborellaApp
+# Saborella Restaurante
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.12.
+Aplicación web para el restaurante gourmet Saborella, desarrollada con Angular.
 
-## Development server
+## Tipografía
 
-To start a local development server, run:
+Este proyecto utiliza dos fuentes principales que le dan una identidad visual elegante y moderna:
+
+### Martina Plantijn
+
+- **Tipo**: Serif
+- **Diseñador**: Kris Sowersby (Klim Type Foundry)
+- **Uso**: Textos principales, párrafos y elementos que requieren elegancia
+- **Adquisición**: Para proyectos comerciales, adquirir la licencia en [Klim Type Foundry](https://klim.co.nz/retail-fonts/martina-plantijn/)
+
+### Inter
+
+- **Tipo**: Sans Serif
+- **Uso**: Títulos, navegación y elementos de interfaz
+- **Adquisición**: Disponible gratuitamente en [Google Fonts](https://fonts.google.com/specimen/Inter)
+
+## Desarrollo
+
+### Requisitos previos
+
+- Node.js
+- Angular CLI
+
+### Instalación
 
 ```bash
+# Instalar dependencias
+npm install
+
+# Iniciar servidor de desarrollo
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+### Construcción
 
 ```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
+# Construir para producción
 ng build
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+## Estructura del proyecto
 
-## Running unit tests
+- `src/app/components`: Componentes reutilizables
+- `src/app/pages`: Páginas principales
+- `src/assets`: Recursos estáticos (imágenes, fuentes, etc.)
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+## Diseño
 
-```bash
-ng test
-```
+El diseño sigue principios minimalistas y elegantes, con un enfoque en:
 
-## Running end-to-end tests
+- Tipografía de alta calidad
+- Espacios en blanco generosos
+- Paleta de colores inspirada en la naturaleza
+- Diseño responsive para todas las plataformas
 
-For end-to-end (e2e) testing, run:
+## Licencia
 
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Este proyecto es privado y su código no puede ser redistribuido sin autorización.
