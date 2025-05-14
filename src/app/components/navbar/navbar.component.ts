@@ -22,8 +22,8 @@ export class NavbarComponent implements OnInit {
 
   @HostListener('window:scroll')
   checkScroll() {
-    // Cambiar estado cuando el scroll es mayor a 50px
-    this.isScrolled = window.scrollY > 50;
+    // Cambiar estado cuando el scroll es mayor a 20px para que se active rápidamente
+    this.isScrolled = window.scrollY > 20;
   }
 
   toggleMenu() {
