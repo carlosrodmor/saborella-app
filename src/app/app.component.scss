@@ -1,0 +1,22 @@
+:host {
+  display: block;
+  min-height: 100vh;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+}
+
+main {
+  padding-top: 80px; /* Espacio para la navbar */
+  min-height: calc(100vh - 80px);
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+/* Estilos globales básicos */
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
