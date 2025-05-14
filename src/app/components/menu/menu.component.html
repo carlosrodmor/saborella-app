@@ -1,0 +1,22 @@
+<section class="menu-container">
+    <div class="menu-content">
+        @for (seccion of menuSecciones; track seccion.titulo) {
+        <div class="menu-section">
+            <h2 class="section-title">{{ seccion.titulo }}</h2>
+            <div class="menu-items">
+                @for (item of seccion.items; track item.nombre) {
+                <div class="menu-item">
+                    <div class="item-header">
+                        <h3 class="item-name">{{ item.nombre }}</h3>
+                        <span class="item-price">{{ item.precio | currency:'EUR':'symbol':'1.2-2' }}</span>
+                    </div>
+                    @if (item.descripcion) {
+                    <p class="item-description">{{ item.descripcion }}</p>
+                    }
+                </div>
+                }
+            </div>
+        </div>
+        }
+    </div>
+</section>
