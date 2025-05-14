@@ -6,13 +6,16 @@
             <div class="menu-items">
                 @for (item of seccion.items; track item.nombre) {
                 <div class="menu-item">
-                    <div class="item-header">
-                        <h3 class="item-name">{{ item.nombre }}</h3>
-                        <span class="item-price">{{ item.precio | currency:'EUR':'symbol':'1.2-2' }}</span>
+                    <img [src]="item.imagen" [alt]="item.nombre" loading="lazy">
+                    <div class="item-content">
+                        <div class="item-header">
+                            <h3 class="item-name">{{ item.nombre }}</h3>
+                            <span class="item-price">{{ item.precio | currency:'EUR':'symbol':'1.2-2' }}</span>
+                        </div>
+                        @if (item.descripcion) {
+                        <p class="item-description">{{ item.descripcion }}</p>
+                        }
                     </div>
-                    @if (item.descripcion) {
-                    <p class="item-description">{{ item.descripcion }}</p>
-                    }
                 </div>
                 }
             </div>
