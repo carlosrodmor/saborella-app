@@ -98,6 +98,31 @@ export class MenuComponent implements AfterViewInit, OnDestroy {
       ],
     },
     {
+      titulo: 'Picoteo',
+      imagenFondo:
+        'https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=1920',
+      items: [
+        {
+          nombre: 'Anillos de queso Gouda (6 uni)',
+          precio: 4.9,
+          imagen:
+            'https://images.unsplash.com/photo-1623653387945-2fd25214f8fc?q=80&w=800',
+        },
+        {
+          nombre: 'Delicias de Pollo (6 uni)',
+          precio: 4.9,
+          imagen:
+            'https://images.unsplash.com/photo-1562967914-608f82629710?q=80&w=800',
+        },
+        {
+          nombre: 'Patatas Fritas (Ración)',
+          precio: 4.9,
+          imagen:
+            'https://images.unsplash.com/photo-1630384060421-cb20d0e0649d?q=80&w=800',
+        },
+      ],
+    },
+    {
       titulo: 'Postres',
       imagenFondo:
         'https://images.unsplash.com/photo-1587314168485-3236d6710814?q=80&w=1920',
@@ -138,31 +163,6 @@ export class MenuComponent implements AfterViewInit, OnDestroy {
       ],
     },
     {
-      titulo: 'Picoteo',
-      imagenFondo:
-        'https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=1920',
-      items: [
-        {
-          nombre: 'Anillos de queso Gouda (6 uni)',
-          precio: 4.9,
-          imagen:
-            'https://images.unsplash.com/photo-1623653387945-2fd25214f8fc?q=80&w=800',
-        },
-        {
-          nombre: 'Delicias de Pollo (6 uni)',
-          precio: 4.9,
-          imagen:
-            'https://images.unsplash.com/photo-1562967914-608f82629710?q=80&w=800',
-        },
-        {
-          nombre: 'Patatas Fritas (Ración)',
-          precio: 4.9,
-          imagen:
-            'https://images.unsplash.com/photo-1630384060421-cb20d0e0649d?q=80&w=800',
-        },
-      ],
-    },
-    {
       titulo: 'Bebidas',
       imagenFondo:
         'https://images.unsplash.com/photo-1551024601-bec78aea704b?q=80&w=1920',
@@ -189,7 +189,7 @@ export class MenuComponent implements AfterViewInit, OnDestroy {
           nombre: 'Cola cao',
           precio: 1.8,
           imagen:
-            'https://images.unsplash.com/photo-1578324510673-3aa1757d785f?q=80&w=800',
+            'https://images.unsplash.com/photo-1542990253-0d0f5be5f0ed?q=80&w=800',
         },
         {
           nombre: 'Zumo de naranja',
@@ -213,7 +213,7 @@ export class MenuComponent implements AfterViewInit, OnDestroy {
           nombre: 'Batidos naturales',
           precio: 5.0,
           imagen:
-            'https://images.unsplash.com/photo-1553530979-7b52d1887356?q=80&w=800',
+            'https://images.unsplash.com/photo-1493807742375-fbc46d996e8f?q=80&w=800',
         },
         {
           nombre: 'Refresco',
