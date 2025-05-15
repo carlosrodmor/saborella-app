@@ -26,14 +26,23 @@
 /* Variables de colores */
 :root {
   --color-primary: #475841; /* Verde oscuro del logo */
+  --color-primary-rgb: 71, 88, 65; /* RGB para verde oscuro */
   --color-secondary: #5a6e53; /* Verde un poco más claro */
+  --color-secondary-rgb: 90, 110, 83; /* RGB para verde claro */
   --color-accent: #8a9984; /* Verde claro para acentos */
+  --color-accent-rgb: 138, 153, 132; /* RGB para verde acento */
   --color-dark: #2c3528; /* Verde muy oscuro para textos */
+  --color-dark-rgb: 44, 53, 40; /* RGB para verde muy oscuro */
   --color-light: #e8ede6; /* Verde muy claro casi blanco */
+  --color-light-rgb: 232, 237, 230; /* RGB para verde claro */
   --color-white: #ffffff; /* Blanco puro */
+  --color-white-rgb: 255, 255, 255; /* RGB para blanco */
   --color-bg: #faf9f7; /* Fondo crema claro como en la imagen */
+  --color-bg-rgb: 250, 249, 247; /* RGB para fondo crema */
   --color-text: #333333; /* Color de texto principal */
+  --color-text-rgb: 51, 51, 51; /* RGB para texto principal */
   --color-text-light: #666666; /* Color de texto secundario */
+  --color-text-light-rgb: 102, 102, 102; /* RGB para texto secundario */
 
   /* Colores para la navbar */
   --color-text-on-dark: #ffffff; /* Texto en fondos oscuros */

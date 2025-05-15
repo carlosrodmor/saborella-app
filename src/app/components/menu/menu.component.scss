@@ -5,13 +5,19 @@
 }
 
 .menu-container {
+  position: relative;
+  display: flex;
   width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px;
   font-family: var(--font-sans);
   background-color: var(--color-bg, #ffffff);
   overflow: hidden;
 }
 
 .menu-content {
+  flex: 1;
   display: flex;
   flex-direction: column;
   gap: 6rem;
@@ -41,6 +47,9 @@
 .menu-section {
   position: relative;
   padding: 2rem 0;
+  scroll-margin-top: 100px;
+  margin-bottom: 60px;
+  transition: opacity 0.3s ease;
 
   &::before {
     content: "";
@@ -139,6 +148,14 @@
       text-shadow: 2px 2px 0 rgba(224, 164, 88, 0.3);
       transition: text-shadow 0.5s ease;
     }
+  }
+
+  &:not(:target) {
+    opacity: 0.95;
+  }
+
+  &:target {
+    opacity: 1;
   }
 }
 
@@ -518,5 +535,180 @@
       opacity: 1;
       transform: translateY(0);
     }
+  }
+}
+
+// Estilos para la navegación lateral
+.menu-nav {
+  position: fixed;
+  top: 120px; // Se ajustará con JavaScript
+  left: 20px; // Posicionado más a la izquierda
+  width: 150px;
+  padding: 8px;
+  z-index: 100;
+  background-color: rgba(var(--color-bg-rgb), 0.92);
+  backdrop-filter: blur(5px);
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+
+  // Estado inicial (oculto)
+  opacity: 0;
+  transform: translateX(-30px);
+  pointer-events: none; // No interactuable cuando está oculto
+
+  // Estado visible
+  &.visible {
+    opacity: 1;
+    transform: translateX(0);
+    pointer-events: all;
+  }
+
+  @media (max-width: 992px) {
+    display: none; // Ocultar en dispositivos móviles y tablets
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: -8px;
+    left: 15px;
+    width: 40px;
+    height: 3px;
+    background-color: var(--color-primary);
+    border-radius: 3px;
+    opacity: 0.7;
+  }
+}
+
+.menu-nav-list {
+  list-style: none;
+  padding: 8px 0;
+  margin: 0;
+}
+
+.menu-nav-item {
+  margin-bottom: 2px;
+}
+
+.menu-nav-link {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: 0.95rem;
+  color: var(--color-text);
+  text-decoration: none;
+  padding: 6px 12px;
+  position: relative;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  opacity: 0.75;
+  border-bottom: 1px solid transparent;
+  border-radius: 4px;
+
+  &:hover {
+    opacity: 1;
+    color: var(--color-primary);
+    background-color: rgba(var(--color-primary-rgb), 0.05);
+  }
+
+  &.active {
+    opacity: 1;
+    color: var(--color-primary);
+    border-bottom: 1px solid var(--color-primary);
+    font-weight: 500;
+  }
+}
+
+// Estilos para la navegación móvil
+.menu-nav-mobile {
+  display: none;
+  position: fixed;
+  top: 0; // Se ajustará con JavaScript
+  left: 0;
+  width: 100%;
+  padding: 8px 0;
+  z-index: 900;
+  background-color: rgba(var(--color-bg-rgb), 0.92);
+  backdrop-filter: blur(5px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+
+  // Estado inicial (oculto)
+  opacity: 0;
+  transform: translateY(-100%);
+  pointer-events: none;
+
+  // Estado visible
+  &.visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: all;
+  }
+
+  @media (max-width: 992px) {
+    display: block;
+  }
+}
+
+.menu-nav-scroll {
+  display: flex;
+  overflow-x: auto;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none; // Ocultar scrollbar en Firefox
+  padding: 0 15px;
+
+  &::-webkit-scrollbar {
+    display: none; // Ocultar scrollbar en Webkit
+  }
+}
+
+// Ajuste para el espacio superior en la versión móvil
+@media (max-width: 992px) {
+  .menu-container {
+    flex-direction: column;
+    padding: 0;
+  }
+
+  .menu-content {
+    padding: 65px 20px 0; // Añadir padding superior para compensar la navegación fija
+  }
+
+  .menu-section {
+    scroll-margin-top: 65px; // Ajustar para el scroll suave con la navegación fija
+  }
+}
+
+.menu-nav-btn {
+  display: inline-block;
+  padding: 6px 12px;
+  margin-right: 10px;
+  font-family: var(--font-serif);
+  font-size: 0.9rem;
+  color: var(--color-text);
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  opacity: 0.75;
+  border-bottom: 1px solid transparent;
+  border-radius: 4px;
+
+  &:hover {
+    opacity: 1;
+    color: var(--color-primary);
+    background-color: rgba(var(--color-primary-rgb), 0.05);
+  }
+
+  &.active {
+    opacity: 1;
+    color: var(--color-primary);
+    border-bottom: 1px solid var(--color-primary);
+    font-weight: 500;
+  }
+
+  &:focus {
+    outline: none;
   }
 }

@@ -1,43 +1,67 @@
 <section class="menu-container">
-    <div class="menu-content">
-        @for (seccion of menuSecciones; track seccion.titulo) {
-        <div class="menu-section" #menuSection>
-            <h2 class="section-title">{{ seccion.titulo }}</h2>
-            <div class="menu-items">
-                @for (item of seccion.items; track item.nombre) {
-                <div class="menu-item">
-                    <div class="item-img-container">
-                        <img [src]="item.imagen" [alt]="item.nombre" loading="lazy">
-                        @if (item.destacado) {
-                        <div class="item-badge">Destacado</div>
-                        }
-                    </div>
-                    <div class="item-content">
-                        <div class="item-header">
-                            <h3 class="item-name">{{ item.nombre }}</h3>
-                            <span class="item-price">{{ item.precio | currency:'EUR':'symbol':'1.2-2' }}</span>
-                        </div>
-                        @if (item.descripcion) {
-                        <p class="item-description">{{ item.descripcion }}</p>
-                        }
-                        @if (seccion.mostrarEtiquetas) {
-                        <div class="item-footer">
-                            @if (item.vegano) {
-                            <span class="item-tag">Vegano</span>
-                            }
-                            @if (item.sinGluten) {
-                            <span class="item-tag">Sin Gluten</span>
-                            }
-                            @if (item.picante) {
-                            <span class="item-tag">Picante</span>
-                            }
-                        </div>
-                        }
-                    </div>
-                </div>
-                }
+  <!-- Navegación lateral de secciones (escritorio) -->
+  <nav class="menu-nav">
+    <ul class="menu-nav-list">
+      @for (seccion of menuSecciones; track seccion.titulo; let i = $index) {
+      <li class="menu-nav-item">
+        <a class="menu-nav-link" [class.active]="activeSection === i" (click)="scrollToSection(i)">
+          {{ seccion.titulo }}
+        </a>
+      </li>
+      }
+    </ul>
+  </nav>
+
+  <!-- Navegación horizontal para móviles -->
+  <nav class="menu-nav-mobile">
+    <div class="menu-nav-scroll">
+      @for (seccion of menuSecciones; track seccion.titulo; let i = $index) {
+      <button class="menu-nav-btn" [class.active]="activeSection === i" (click)="scrollToSection(i)">
+        {{ seccion.titulo }}
+      </button>
+      }
+    </div>
+  </nav>
+
+  <div class="menu-content">
+    @for (seccion of menuSecciones; track seccion.titulo; let i = $index) {
+    <div class="menu-section" #menuSection id="seccion-{{i}}">
+      <h2 class="section-title">{{ seccion.titulo }}</h2>
+      <div class="menu-items">
+        @for (item of seccion.items; track item.nombre) {
+        <div class="menu-item">
+          <div class="item-img-container">
+            <img [src]="item.imagen" [alt]="item.nombre" loading="lazy">
+            @if (item.destacado) {
+            <div class="item-badge">Destacado</div>
+            }
+          </div>
+          <div class="item-content">
+            <div class="item-header">
+              <h3 class="item-name">{{ item.nombre }}</h3>
+              <span class="item-price">{{ item.precio | currency:'EUR':'symbol':'1.2-2' }}</span>
             </div>
+            @if (item.descripcion) {
+            <p class="item-description">{{ item.descripcion }}</p>
+            }
+            @if (seccion.mostrarEtiquetas) {
+            <div class="item-footer">
+              @if (item.vegano) {
+              <span class="item-tag">Vegano</span>
+              }
+              @if (item.sinGluten) {
+              <span class="item-tag">Sin Gluten</span>
+              }
+              @if (item.picante) {
+              <span class="item-tag">Picante</span>
+              }
+            </div>
+            }
+          </div>
         </div>
         }
+      </div>
     </div>
+    }
+  </div>
 </section>
