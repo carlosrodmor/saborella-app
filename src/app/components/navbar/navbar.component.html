@@ -1,5 +1,10 @@
 <nav class="modern-navbar" [ngClass]="{'scrolled': isScrolled}">
   <div class="navbar-content-wrapper">
+    <!-- Logo minimalista -->
+    <a routerLink="/" class="brand-logo" aria-label="Inicio">
+      <img src="assets/logo/logo.webp" alt="Saborella" class="logo-img">
+    </a>
+
     <!-- Navegación centralizada -->
     <div class="nav-section center-section">
       <a routerLink="/home" routerLinkActive="active" (click)="closeMenu()">Inicio</a>

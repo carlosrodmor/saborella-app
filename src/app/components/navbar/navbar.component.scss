@@ -45,9 +45,27 @@ $transition-easing: cubic-bezier(0.16, 1, 0.3, 1);
   .navbar-content-wrapper {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     width: 100%;
     position: relative;
+  }
+
+  .brand-logo {
+    text-decoration: none;
+    transition: all $transition-speed ease;
+    display: flex;
+    align-items: center;
+
+    .logo-img {
+      height: 30px;
+      width: auto;
+      filter: brightness(1.05);
+      transition: filter $transition-speed ease;
+
+      &:hover {
+        filter: brightness(1.1);
+      }
+    }
   }
 
   .nav-section {
@@ -57,7 +75,6 @@ $transition-easing: cubic-bezier(0.16, 1, 0.3, 1);
 
     &.center-section {
       justify-content: center;
-      width: 100%;
     }
 
     a {
@@ -239,7 +256,11 @@ $transition-easing: cubic-bezier(0.16, 1, 0.3, 1);
     padding: 0 10px;
 
     .navbar-content-wrapper {
-      justify-content: center;
+      justify-content: space-between;
+    }
+
+    .brand-logo .logo-img {
+      height: 25px;
     }
 
     .nav-section {
@@ -248,8 +269,7 @@ $transition-easing: cubic-bezier(0.16, 1, 0.3, 1);
 
     .menu-toggle {
       display: flex;
-      position: absolute;
-      right: 10px;
+      position: relative;
     }
   }
 }
