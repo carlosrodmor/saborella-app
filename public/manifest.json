@@ -1,0 +1,23 @@
+{
+  "name": "Saborella - Restaurante Gourmet",
+  "short_name": "Saborella",
+  "description": "Restaurante gourmet con los mejores sabores de la cocina mediterránea y latina",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0f0f0f",
+  "theme_color": "#0f0f0f",
+  "icons": [
+    {
+      "src": "icons/logo.webp",
+      "sizes": "192x192",
+      "type": "image/webp",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/logo.webp",
+      "sizes": "512x512",
+      "type": "image/webp",
+      "purpose": "any"
+    }
+  ]
+}
