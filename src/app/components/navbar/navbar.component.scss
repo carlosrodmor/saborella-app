@@ -8,8 +8,8 @@
 }
 
 // Variables
-$navbar-height: 70px;
-$navbar-height-mobile: 60px;
+$navbar-height: 50px;
+$navbar-height-mobile: 45px;
 $navbar-bg: rgba(15, 15, 15, 0.7);
 $navbar-bg-scrolled: rgba(10, 10, 10, 0.8);
 $text-color: #f2f2f2;
@@ -23,7 +23,7 @@ $transition-easing: cubic-bezier(0.16, 1, 0.3, 1);
   top: 15px;
   left: 50%;
   transform: translateX(-50%);
-  width: min(92%, 1200px);
+  width: min(70%, 800px);
   height: $navbar-height;
   z-index: 1000;
   background-color: $navbar-bg;
@@ -31,7 +31,7 @@ $transition-easing: cubic-bezier(0.16, 1, 0.3, 1);
   -webkit-backdrop-filter: blur(8px);
   border-radius: $border-radius;
   box-shadow: 0 4px 25px rgba(0, 0, 0, 0.15);
-  padding: 0 20px;
+  padding: 0 15px;
   transition: all $transition-speed $transition-easing;
   display: flex;
   align-items: center;
@@ -45,8 +45,9 @@ $transition-easing: cubic-bezier(0.16, 1, 0.3, 1);
   .navbar-content-wrapper {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     width: 100%;
+    position: relative;
   }
 
   .nav-section {
@@ -54,20 +55,25 @@ $transition-easing: cubic-bezier(0.16, 1, 0.3, 1);
     align-items: center;
     gap: 25px;
 
+    &.center-section {
+      justify-content: center;
+      width: 100%;
+    }
+
     a {
       color: $text-color;
       text-decoration: none;
       font-family: var(--font-sans, "Monument Grotesk", sans-serif);
-      font-size: 0.95rem;
+      font-size: 0.85rem;
       font-weight: 500;
       letter-spacing: 0.02em;
-      padding: 8px 12px;
-      border-radius: 8px;
+      padding: 6px 10px;
+      border-radius: 6px;
       transition: all $transition-speed ease;
       position: relative;
 
       &::after {
-        content: '';
+        content: "";
         position: absolute;
         bottom: 2px;
         left: 50%;
@@ -89,37 +95,12 @@ $transition-easing: cubic-bezier(0.16, 1, 0.3, 1);
     }
   }
 
-  .brand-logo {
-    text-decoration: none;
-    transition: all $transition-speed ease;
-    display: flex;
-    align-items: center;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-
-    &:hover {
-      opacity: 0.95;
-    }
-
-    .logo-img {
-      height: 45px;
-      width: auto;
-      filter: brightness(1.05);
-      transition: filter $transition-speed ease;
-
-      &:hover {
-        filter: brightness(1.1);
-      }
-    }
-  }
-
   .menu-toggle {
     display: none;
     flex-direction: column;
     justify-content: space-between;
-    width: 22px;
-    height: 16px;
+    width: 20px;
+    height: 14px;
     cursor: pointer;
     z-index: 1002;
     position: relative;
@@ -130,18 +111,18 @@ $transition-easing: cubic-bezier(0.16, 1, 0.3, 1);
       background-color: $text-color;
       border-radius: 2px;
       transition: transform $transition-speed $transition-easing,
-                  opacity $transition-speed $transition-easing;
+        opacity $transition-speed $transition-easing;
     }
 
     &.active {
       .bar:nth-child(1) {
-        transform: translateY(7px) rotate(45deg);
+        transform: translateY(6px) rotate(45deg);
       }
       .bar:nth-child(2) {
         opacity: 0;
       }
       .bar:nth-child(3) {
-        transform: translateY(-7px) rotate(-45deg);
+        transform: translateY(-6px) rotate(-45deg);
       }
     }
   }
@@ -180,7 +161,7 @@ $transition-easing: cubic-bezier(0.16, 1, 0.3, 1);
       color: $text-color;
       text-decoration: none;
       font-family: var(--font-sans, "Monument Grotesk", sans-serif);
-      font-size: 1.8rem;
+      font-size: 1.6rem;
       font-weight: 500;
       letter-spacing: 0.04em;
       padding: 10px;
@@ -188,12 +169,11 @@ $transition-easing: cubic-bezier(0.16, 1, 0.3, 1);
       position: relative;
       opacity: 0;
       transform: translateY(20px);
-      transition: color $transition-speed ease,
-                 opacity 0.4s ease,
-                 transform 0.4s ease;
+      transition: color $transition-speed ease, opacity 0.4s ease,
+        transform 0.4s ease;
 
       &::after {
-        content: '';
+        content: "";
         position: absolute;
         bottom: 0;
         left: 50%;
@@ -219,9 +199,15 @@ $transition-easing: cubic-bezier(0.16, 1, 0.3, 1);
     opacity: 1;
     transform: translateY(0);
 
-    &:nth-child(1) { transition-delay: 0.2s; }
-    &:nth-child(2) { transition-delay: 0.3s; }
-    &:nth-child(3) { transition-delay: 0.4s; }
+    &:nth-child(1) {
+      transition-delay: 0.2s;
+    }
+    &:nth-child(2) {
+      transition-delay: 0.3s;
+    }
+    &:nth-child(3) {
+      transition-delay: 0.4s;
+    }
   }
 }
 
@@ -236,8 +222,7 @@ $transition-easing: cubic-bezier(0.16, 1, 0.3, 1);
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-  transition: opacity $transition-speed ease,
-              visibility $transition-speed ease;
+  transition: opacity $transition-speed ease, visibility $transition-speed ease;
 
   &.active {
     opacity: 1;
@@ -247,57 +232,35 @@ $transition-easing: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 // Estilos responsive
-@media (max-width: 880px) {
+@media (max-width: 768px) {
   .modern-navbar {
+    width: 90%;
     height: $navbar-height-mobile;
-    padding: 0 15px;
-    border-radius: 14px;
-    top: 10px;
-
-    &.scrolled {
-      top: 5px;
-    }
+    padding: 0 10px;
 
     .navbar-content-wrapper {
       justify-content: center;
-      position: relative;
     }
 
     .nav-section {
       display: none;
     }
 
-    .brand-logo {
-      position: relative;
-      transform: none;
-      left: 0;
-      margin: 0 auto;
-
-      .logo-img {
-        height: 38px;
-      }
-    }
-
     .menu-toggle {
       display: flex;
       position: absolute;
-      right: 5px;
+      right: 10px;
     }
   }
 }
 
-// Estilos para dispositivos más pequeños
 @media (max-width: 480px) {
   .modern-navbar {
-    width: calc(100% - 20px);
-    height: 55px;
-
-    .brand-logo .logo-img {
-      height: 34px;
-    }
+    width: calc(100% - 30px);
+    height: 45px;
   }
 
   .mobile-menu .mobile-menu-content a {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
   }
 }
