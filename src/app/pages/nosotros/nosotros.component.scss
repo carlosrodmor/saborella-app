@@ -1,131 +1,375 @@
-$primary-color: var(--color-primary);
-$accent-color: var(--color-accent);
-$text-color: var(--color-text);
-$background-color: var(--color-bg);
-$spacing-unit: 1rem;
-$border-radius: 0;
-$transition-speed: 0.3s;
+// Variables
+$primary: var(--color-primary);
+$secondary: var(--color-secondary);
+$accent: var(--color-accent);
+$bg: var(--color-bg);
+$white: var(--color-white);
+$text: var(--color-text);
+$text-light: var(--color-text-light);
+$font-headline: var(--font-headline);
+$font-serif: var(--font-serif);
+$font-sans: var(--font-sans);
+$transition: 0.4s ease;
+$transition-slow: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+
+// Mixins
+@mixin responsive($breakpoint) {
+  @if $breakpoint == phone {
+    @media (max-width: 576px) { @content; }
+  }
+  @if $breakpoint == tablet {
+    @media (max-width: 992px) { @content; }
+  }
+}
+
+.nosotros-section {
+  position: relative;
+  background-color: $bg;
+  overflow: hidden;
+}
 
 .nosotros-container {
-  min-height: 100vh;
-  padding: 120px $spacing-unit * 2 $spacing-unit * 4;
-  background-color: $background-color;
-  color: $text-color;
-  font-family: var(--font-sans, sans-serif);
-
-  @media (max-width: 768px) {
-    padding: 100px $spacing-unit $spacing-unit * 2;
-  }
-}
-
-.content-wrapper {
   max-width: 1200px;
   margin: 0 auto;
-}
+  padding: 120px 2rem;
 
-.section-title {
-  font-size: 2.5rem;
-  font-weight: 700;
-  text-align: center;
-  margin-bottom: $spacing-unit * 1.5;
-  color: $primary-color;
-  font-family: var(--font-serif);
-}
+  @include responsive(tablet) {
+    padding: 100px 1.5rem;
+  }
 
-.separator {
-  width: 60px;
-  height: 2px;
-  background-color: var(--color-accent);
-  margin: 0 auto $spacing-unit * 3;
-}
-
-.about-content {
-  display: flex;
-  flex-wrap: wrap;
-  gap: $spacing-unit * 4;
-
-  @media (max-width: 992px) {
-    flex-direction: column;
+  @include responsive(phone) {
+    padding: 80px 1rem;
   }
 }
 
-.about-text {
-  flex: 1;
-  min-width: 300px;
+// Header con animación sutil
+.nosotros-header {
+  text-align: center;
+  margin-bottom: 6rem;
 
-  h2 {
-    font-size: 1.8rem;
-    margin-bottom: $spacing-unit;
-    color: $primary-color;
-    font-weight: 600;
-    font-family: var(--font-serif);
+  @include responsive(phone) {
+    margin-bottom: 4rem;
+  }
+}
+
+.heading-primary {
+  font-family: $font-headline;
+  font-size: 4rem;
+  line-height: 1.1;
+  margin-bottom: 1rem;
+  color: $primary;
+  font-weight: 700;
+
+  @include responsive(tablet) {
+    font-size: 3rem;
+  }
+
+  @include responsive(phone) {
+    font-size: 2.5rem;
+  }
+}
+
+// Línea acentuada
+.accent-line {
+  width: 80px;
+  height: 3px;
+  background-color: $accent;
+  margin: 0 auto;
+  transform-origin: center;
+  animation: lineExtend 1.2s $transition-slow forwards;
+}
+
+@keyframes lineExtend {
+  0% { width: 0; }
+  100% { width: 80px; }
+}
+
+// Secciones con numeración minimalista
+.historia-section,
+.filosofia-section,
+.equipo-section {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 8rem;
+  position: relative;
+
+  @include responsive(tablet) {
+    flex-direction: column;
+    margin-bottom: 6rem;
+  }
+
+  @include responsive(phone) {
+    margin-bottom: 5rem;
+  }
+}
+
+.section-number {
+  font-family: $font-serif;
+  font-size: 5rem;
+  font-weight: 700;
+  color: rgba($accent, 0.15);
+  line-height: 1;
+  min-width: 80px;
+
+  @include responsive(tablet) {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.section-content {
+  flex: 1;
+}
+
+.heading-secondary {
+  font-family: $font-serif;
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: $primary;
+  margin-bottom: 2rem;
+
+  @include responsive(phone) {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+}
+
+.heading-tertiary {
+  font-family: $font-serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: $secondary;
+  margin-bottom: 0.75rem;
+}
+
+.paragraph {
+  font-family: $font-sans;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: $text;
+  margin-bottom: 1.5rem;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+// Grid para filosofía
+.filosofia-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+
+  @include responsive(tablet) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include responsive(phone) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.filosofia-item {
+  padding: 1.5rem;
+  background-color: rgba($white, 0.5);
+  border-left: 3px solid $accent;
+  transition: $transition;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
   }
 
   p {
-    margin-bottom: $spacing-unit * 1.5;
-    line-height: 1.6;
-    font-size: 1.05rem;
-    color: var(--color-text);
+    font-size: 1rem;
+    color: $text-light;
+    line-height: 1.5;
   }
 }
 
-.team-section {
-  flex: 1;
-  min-width: 300px;
+.filosofia-icon {
+  display: block;
+  width: 40px;
+  height: 40px;
+  background-color: rgba($accent, 0.1);
+  border-radius: 50%;
+  margin-bottom: 1rem;
+  position: relative;
 
-  h2 {
-    font-size: 1.8rem;
-    margin-bottom: $spacing-unit * 1.5;
-    color: $primary-color;
-    font-weight: 600;
-    text-align: center;
-    font-family: var(--font-serif);
-  }
-}
-
-.team-members {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: $spacing-unit * 2;
-}
-
-.team-member {
-  width: 200px;
-  text-align: center;
-
-  .member-photo {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    margin: 0 auto $spacing-unit;
-    background-color: var(--color-light);
-    background-size: cover;
+  &::before {
+    content: '';
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-size: contain;
+    background-repeat: no-repeat;
     background-position: center;
+  }
 
-    &.chef {
-      background-image: url("https://images.unsplash.com/photo-1577219491135-ce391730fb2c?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80");
-    }
+  &.local::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23475841'%3E%3Cpath d='M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z'/%3E%3C/svg%3E");
+  }
 
-    &.sommelier {
-      background-image: url("https://images.unsplash.com/photo-1542838132-92c53300491e?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80");
-    }
+  &.seasonal::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23475841'%3E%3Cpath d='M12 22c4.97 0 9-4.03 9-9-4.97 0-9 4.03-9 9zM5.6 10.25c0 1.38 1.12 2.5 2.5 2.5.53 0 1.01-.16 1.42-.44l-.02.19c0 1.38 1.12 2.5 2.5 2.5s2.5-1.12 2.5-2.5l-.02-.19c.4.28.89.44 1.42.44 1.38 0 2.5-1.12 2.5-2.5 0-.53-.16-1.01-.44-1.42l.19.02c0-1.38-1.12-2.5-2.5-2.5-.53 0-1.01.16-1.42.44l.02-.19C14.5 5.12 13.38 4 12 4S9.5 5.12 9.5 6.5l.02.19c-.4-.28-.89-.44-1.42-.44-1.38 0-2.5 1.12-2.5 2.5 0 .53.16 1.01.44 1.42l-.19-.02z'/%3E%3C/svg%3E");
+  }
 
-    &.manager {
-      background-image: url("https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80");
+  &.artisanal::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23475841'%3E%3Cpath d='M8.1 13.34l2.83-2.83L3.91 3.5c-1.56 1.56-1.56 4.09 0 5.66l4.19 4.18zm6.78-1.81c1.53.71 3.68.21 5.27-1.38 1.91-1.91 2.28-4.65.81-6.12-1.46-1.46-4.2-1.1-6.12.81-1.59 1.59-2.09 3.74-1.38 5.27L3.7 19.87l1.41 1.41L12 14.41l6.88 6.88 1.41-1.41L13.41 13l1.47-1.47z'/%3E%3C/svg%3E");
+  }
+}
+
+// Equipo con diseño contemporáneo
+.equipo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+
+  @include responsive(tablet) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include responsive(phone) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.equipo-card {
+  perspective: 1000px;
+}
+
+.equipo-card-inner {
+  background-color: $white;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  transition: $transition;
+
+  &:hover {
+    transform: translateY(-10px) rotateY(5deg);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+
+    .equipo-foto {
+      transform: scale(1.05);
     }
   }
+}
+
+.equipo-foto {
+  height: 280px;
+  width: 100%;
+  background-size: cover;
+  background-position: center 20%;
+  transition: $transition;
+
+  &.chef {
+    background-image: url("https://images.unsplash.com/photo-1577219491135-ce391730fb2c?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80");
+  }
+
+  &.sommelier {
+    background-image: url("https://images.unsplash.com/photo-1542838132-92c53300491e?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80");
+  }
+
+  &.manager {
+    background-image: url("https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80");
+  }
+}
+
+.equipo-info {
+  padding: 1.5rem;
+  text-align: center;
 
   h3 {
-    font-size: 1.2rem;
-    margin-bottom: $spacing-unit * 0.5;
+    font-family: $font-serif;
+    font-size: 1.25rem;
     font-weight: 600;
-    font-family: var(--font-serif);
-    color: var(--color-primary);
+    color: $primary;
+    margin-bottom: 0.5rem;
   }
 
   p {
-    color: var(--color-text-light);
+    color: $text-light;
     font-size: 0.95rem;
+  }
+}
+
+// Cita inspiradora
+.quote-section {
+  margin: 6rem 0 2rem;
+  text-align: center;
+}
+
+.quote {
+  font-family: $font-serif;
+  font-size: 2.2rem;
+  font-style: italic;
+  font-weight: 300;
+  color: $primary;
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.4;
+
+  @include responsive(phone) {
+    font-size: 1.6rem;
+  }
+
+  cite {
+    display: block;
+    font-family: $font-sans;
+    font-size: 1rem;
+    font-weight: 500;
+    font-style: normal;
+    color: $text-light;
+    margin-top: 1rem;
+  }
+}
+
+// Animaciones de scroll
+.reveal-text {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: revealText 0.8s $transition-slow forwards;
+}
+
+.reveal-section {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: revealSection 1s $transition-slow forwards;
+
+  &:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+
+  &:nth-child(3) {
+    animation-delay: 0.4s;
+  }
+
+  &:nth-child(4) {
+    animation-delay: 0.6s;
+  }
+}
+
+@keyframes revealText {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes revealSection {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
