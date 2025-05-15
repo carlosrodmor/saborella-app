@@ -11,7 +11,10 @@ import { CommonModule } from '@angular/common';
 export class FontTesterComponent {
   // Fuentes disponibles
   fonts = [
-    { name: 'Corfe (--font-headline)', variable: 'var(--font-headline)' },
+    {
+      name: 'Playfair Display (--font-headline)',
+      variable: 'var(--font-headline)',
+    },
     { name: 'Playfair Display (--font-serif)', variable: 'var(--font-serif)' },
     { name: 'Montserrat (--font-sans)', variable: 'var(--font-sans)' },
   ];

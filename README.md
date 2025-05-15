@@ -4,18 +4,12 @@ Aplicación web para el restaurante gourmet Saborella, desarrollada con Angular.
 
 ## Tipografía
 
-Este proyecto utiliza tres fuentes principales que le dan una identidad visual elegante y moderna:
-
-### Corfe
-
-- **Tipo**: Serif
-- **Uso**: Títulos principales y elementos destacados
-- **Adquisición**: Para proyectos comerciales, adquirir la licencia correspondiente
+Este proyecto utiliza dos fuentes principales que le dan una identidad visual elegante y moderna:
 
 ### Playfair Display
 
 - **Tipo**: Serif
-- **Uso**: Subtítulos y textos con elegancia
+- **Uso**: Títulos principales, subtítulos y textos con elegancia
 - **Adquisición**: Disponible gratuitamente en [Google Fonts](https://fonts.google.com/specimen/Playfair+Display)
 
 ### Montserrat

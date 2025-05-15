@@ -16,8 +16,7 @@
 /* Importación de fuentes */
 @font-face {
   font-family: "Corfe";
-  src: url("/assets/fonts/corfe/Corfe-Bold.woff2") format("woff2"),
-    local("Playfair Display Bold"); /* Fuente de respaldo si no se puede cargar Corfe */
+  src: local("Playfair Display Bold"); /* Usamos solo la fuente de respaldo */
   font-weight: bold;
   font-style: normal;
   font-display: swap;
@@ -49,7 +48,7 @@
   --color-text-on-light: #333333; /* Texto en fondos claros */
 
   /* Variables de tipografía */
-  --font-headline: "Corfe", "Playfair Display", Georgia, serif;
+  --font-headline: "Playfair Display", Georgia, serif; /* Cambiado de Corfe a Playfair Display directamente */
   --font-serif: "Playfair Display", Georgia, serif;
   --font-sans: "Montserrat", system-ui, -apple-system, sans-serif;
 }
