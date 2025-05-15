@@ -4,20 +4,25 @@ Aplicación web para el restaurante gourmet Saborella, desarrollada con Angular.
 
 ## Tipografía
 
-Este proyecto utiliza dos fuentes principales que le dan una identidad visual elegante y moderna:
+Este proyecto utiliza tres fuentes principales que le dan una identidad visual elegante y moderna:
 
-### Martina Plantijn
+### Corfe
 
 - **Tipo**: Serif
-- **Diseñador**: Kris Sowersby (Klim Type Foundry)
-- **Uso**: Textos principales, párrafos y elementos que requieren elegancia
-- **Adquisición**: Para proyectos comerciales, adquirir la licencia en [Klim Type Foundry](https://klim.co.nz/retail-fonts/martina-plantijn/)
+- **Uso**: Títulos principales y elementos destacados
+- **Adquisición**: Para proyectos comerciales, adquirir la licencia correspondiente
 
-### Inter
+### Playfair Display
+
+- **Tipo**: Serif
+- **Uso**: Subtítulos y textos con elegancia
+- **Adquisición**: Disponible gratuitamente en [Google Fonts](https://fonts.google.com/specimen/Playfair+Display)
+
+### Montserrat
 
 - **Tipo**: Sans Serif
-- **Uso**: Títulos, navegación y elementos de interfaz
-- **Adquisición**: Disponible gratuitamente en [Google Fonts](https://fonts.google.com/specimen/Inter)
+- **Uso**: Textos generales, navegación y elementos de interfaz
+- **Adquisición**: Disponible gratuitamente en [Google Fonts](https://fonts.google.com/specimen/Montserrat)
 
 ## Desarrollo
 

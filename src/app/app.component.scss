@@ -1,7 +1,7 @@
 :host {
   display: block;
   min-height: 100vh;
-  font-family: "Minion Pro", "Times New Roman", serif;
+  font-family: var(--font-sans);
   color: var(--color-dark);
 }
 
@@ -23,7 +23,7 @@ section {
 
 /* Estilos para títulos de sección */
 .section-title {
-  font-family: "ATF Alternate Gothic", "Arial Narrow", sans-serif;
+  font-family: var(--font-headline);
   font-size: 3rem;
   text-transform: uppercase;
   letter-spacing: 2px;

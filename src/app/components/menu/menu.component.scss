@@ -6,7 +6,7 @@
 
 .menu-container {
   width: 100%;
-  font-family: var(--font-sans, "Arial", sans-serif);
+  font-family: var(--font-sans);
   background-color: var(--color-bg, #ffffff);
   overflow: hidden;
 }
@@ -59,14 +59,14 @@
   }
 
   .section-title {
-    font-family: var(--font-serif, "Georgia", serif);
+    font-family: var(--font-headline);
     font-size: 3rem;
     color: var(--color-primary, #2a2a2a);
     margin-bottom: 3.5rem;
     text-align: center;
     position: relative;
     letter-spacing: 2px;
-    font-weight: 300;
+    font-weight: 700;
 
     &::first-letter {
       font-size: 3.5rem;

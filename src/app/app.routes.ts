@@ -27,4 +27,15 @@ export const routes: Routes = [
         (m) => m.ContactoComponent
       ),
   },
+  {
+    path: 'font-test',
+    loadComponent: () =>
+      import('./pages/font-test/font-test.component').then(
+        (m) => m.FontTestComponent
+      ),
+  },
+  {
+    path: '**',
+    redirectTo: '',
+  },
 ];

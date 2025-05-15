@@ -1,0 +1,24 @@
+<div class="font-tester">
+    <h1 class="tester-title">Prueba de Tipografías</h1>
+    <p class="tester-description">Esta página muestra todas las tipografías disponibles en la aplicación Saborella.</p>
+
+    <div class="font-section" *ngFor="let font of fonts">
+        <h2 class="font-name">{{ font.name }}</h2>
+
+        <div class="font-examples">
+            <div class="style-group" *ngFor="let style of styles">
+                <h3 class="style-name">{{ style.name }}</h3>
+
+                <div class="size-examples">
+                    <div class="size-example" *ngFor="let size of sizes">
+                        <span class="size-label">{{ size.name }} - {{ size.size }}</span>
+                        <p class="example-text" [style.font-family]="font.variable" [style.font-weight]="style.weight"
+                            [style.font-style]="style.style" [style.font-size]="size.size">
+                            Saborella - Restaurante Gourmet
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

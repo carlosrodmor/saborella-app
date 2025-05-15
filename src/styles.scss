@@ -3,47 +3,23 @@
  *
  * Este proyecto utiliza dos fuentes principales:
  *
- * 1. Martina Plantijn - Una elegante serif diseñada por Kris Sowersby (Klim Type Foundry)
- *    Para proyectos comerciales, adquirir la licencia en: https://klim.co.nz/retail-fonts/martina-plantijn/
+ * 1. Corfe - Una elegante serif para títulos y elementos destacados
+ *    Para proyectos comerciales, adquirir la licencia correspondiente
  *
- * 2. Inter - Sans serif moderna y legible (Google Fonts)
- *    Disponible gratuitamente en: https://fonts.google.com/specimen/Inter
+ * 2. Playfair Display - Serif elegante para subtítulos (Google Fonts)
+ *    Disponible gratuitamente en: https://fonts.google.com/specimen/Playfair+Display
+ *
+ * 3. Montserrat - Sans serif moderna y legible para textos (Google Fonts)
+ *    Disponible gratuitamente en: https://fonts.google.com/specimen/Montserrat
  */
 
 /* Importación de fuentes */
 @font-face {
-  font-family: "Martina Plantijn";
-  src: url("/assets/fonts/martina-plantijn/MartinaPlantijn-Regular.woff2")
-    format("woff2");
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Martina Plantijn";
-  src: url("/assets/fonts/martina-plantijn/MartinaPlantijn-Italic.woff2")
-    format("woff2");
-  font-weight: normal;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Martina Plantijn";
-  src: url("/assets/fonts/martina-plantijn/MartinaPlantijn-Bold.woff2")
-    format("woff2");
+  font-family: "Corfe";
+  src: url("/assets/fonts/corfe/Corfe-Bold.woff2") format("woff2"),
+    local("Playfair Display Bold"); /* Fuente de respaldo si no se puede cargar Corfe */
   font-weight: bold;
   font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Martina Plantijn";
-  src: url("/assets/fonts/martina-plantijn/MartinaPlantijn-BoldItalic.woff2")
-    format("woff2");
-  font-weight: bold;
-  font-style: italic;
   font-display: swap;
 }
 
@@ -64,8 +40,9 @@
   --color-text-on-light: #333333; /* Texto en fondos claros */
 
   /* Variables de tipografía */
-  --font-serif: "Martina Plantijn", Georgia, serif;
-  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+  --font-headline: "Corfe", "Playfair Display", Georgia, serif;
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-sans: "Montserrat", system-ui, -apple-system, sans-serif;
 }
 
 /* Reseteo básico */
@@ -80,7 +57,7 @@ html {
 }
 
 body {
-  font-family: var(--font-serif);
+  font-family: var(--font-sans);
   line-height: 1.6;
   color: var(--color-text);
   background-color: var(--color-bg);
@@ -93,8 +70,8 @@ body {
 /* Estilos de tipografía basados en la imagen de referencia */
 h1,
 .h1 {
-  font-family: var(--font-serif);
-  font-weight: 400;
+  font-family: var(--font-headline);
+  font-weight: 700;
   font-size: 3.5rem;
   line-height: 1.2;
   margin-bottom: 1.5rem;
@@ -104,7 +81,7 @@ h1,
 h2,
 .h2 {
   font-family: var(--font-serif);
-  font-weight: 400;
+  font-weight: 600;
   font-size: 2.5rem;
   line-height: 1.2;
   margin-bottom: 1.25rem;
@@ -114,7 +91,7 @@ h2,
 h3,
 .h3 {
   font-family: var(--font-serif);
-  font-weight: 400;
+  font-weight: 500;
   font-size: 2rem;
   line-height: 1.3;
   margin-bottom: 1rem;
@@ -147,6 +124,7 @@ p {
 
 .subtitle {
   font-family: var(--font-serif);
+  font-style: italic;
   font-size: 1.5rem;
   color: var(--color-text-light);
   line-height: 1.4;
@@ -154,9 +132,9 @@ p {
 }
 
 .headline {
-  font-family: var(--font-serif);
+  font-family: var(--font-headline);
   font-size: 3rem;
-  font-weight: 400;
+  font-weight: 700;
   line-height: 1.1;
   margin-bottom: 1rem;
 }
@@ -257,15 +235,16 @@ p {
 
 /* Estilos específicos para emular la imagen de referencia */
 .hero-title {
-  font-family: var(--font-serif);
+  font-family: var(--font-headline);
   font-size: 3.5rem;
-  font-weight: 400;
+  font-weight: 700;
   line-height: 1.1;
   margin-bottom: 0.5rem;
 }
 
 .hero-subtitle {
   font-family: var(--font-serif);
+  font-style: italic;
   font-size: 2.5rem;
   font-weight: 400;
   line-height: 1.2;
@@ -276,13 +255,13 @@ p {
 .feature-title {
   font-family: var(--font-serif);
   font-size: 1.75rem;
-  font-weight: 400;
+  font-weight: 600;
   line-height: 1.2;
   margin-bottom: 1rem;
 }
 
 .feature-text {
-  font-family: var(--font-serif);
+  font-family: var(--font-sans);
   font-size: 1.125rem;
   line-height: 1.5;
   color: var(--color-text-light);
